@@ -22,6 +22,7 @@ jobs:
       working-directory: api
     - name: List Dependencies
       run: dotnet list package > dependencies.txt
+      working-directory: api
     - name: Collect Dependencies
       uses: actions/upload-artifact@v2
       with:
