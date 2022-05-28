@@ -49,6 +49,6 @@ jobs:
     - name: Publish Artifacts to Azure
       uses: Azure/webapps-deploy@v2
       with:
-        app-name: ez-rg-hressorg
+        app-name: ez-stapp-hressorg
         package: "./api/_build"
         slot-name: production  
