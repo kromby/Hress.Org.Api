@@ -19,7 +19,7 @@ jobs:
         dotnet-version: 6.0.x
     - name: Restore dependencies
       run: dotnet restore
-    - working-directory: api
+      working-directory: api
     - name: List Dependencies
       run: dotnet list package > dependencies.txt
     - name: Collect Dependencies
