@@ -34,3 +34,21 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
       working-directory: api
+      
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: HressAPI
+        path: "./_build"    
+
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    
+    - name: Publish Artifacts to Azure
+      uses: Azure/webapps-deploy@v2
+      with:
+        app-name: ez-rg-hressorg
+        package: "./_build"
+        slot-name: production  
